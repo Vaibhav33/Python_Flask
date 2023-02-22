@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        li{
+            color: white;
+            list-style: none;
+            padding-left: 20px;
+            
+        }
+        nav{
+            height: 9vh;
+            background-color: black;
+            display:flex;
+            font-size: 20px;
+            align-items: center;
+            justify-content: start;
+        }
+        table,th,td{
+            border:1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <li><a style="text-decoration: none;color: white;font-size: 30px;" href="#">ToDo</a></li>
+        <li>Home</li>
+        <li>About</li>
+    </nav>
+    <h1 style="padding-left:50px">Add a ToDo</h1>
+    <div style="padding-left:50px">
+        <label for="">Title</label><br>
+        <input style="width: 90%;" type="text">
+        <br>
+        <br>
+        <label for="">Desc</label><br>
+        <input style="width: 90%;"type="text">
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+
+    </div>
+    <div style="padding-left:50px;margin: 20px 0;">
+        <h1 style="margin: 20px 0;">Your ToDos</h1>
+        <table >
+            <tr>
+              <th>Sr</th>
+              <th>Title</th>
+              <th>Desc</th>
+              <th>DateTime</th>
+            </tr>
+            {% for todo in allTodo  %}
+            <tr>
+                <td>{{loop.index}}</td>  
+                <td>{{todo.title}}</td>
+                <td>{{todo.desc}}</td>
+                <td>{{todo.date}}</td>
+              </tr>
+            {% endfor %}
+            
+            
+          </table>
+    </div>
+</body>
+</html>
