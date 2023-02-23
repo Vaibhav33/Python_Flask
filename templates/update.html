@@ -44,47 +44,18 @@
         <li>Home</li>
         <li>About</li>
     </nav>
-    <h1 style="padding-left:50px">Add a ToDo</h1>
+    <h1 style="padding-left:50px">Update ToDo</h1>
 
-    <form action="/" method="POST">
+    <form action="/update/{{todo.sno}}" method="POST">
     <div style="padding-left:50px">
         <label for="title">Title</label><br>
-        <input style="width: 90%;" type="text" name="title">
+        <input style="width: 90%;" type="text" value="{{todo.title}}" name="title">
         <br>
         <br>
         <label for="desc">Desc</label><br>
-        <input style="width: 90%;"type="text" name="desc">
+        <input style="width: 90%;"type="text" value={{todo.desc}} name="desc">
         <br>
         <br>
-        <button type="submit">Submit</button>   
+        <button type="submit">Update</button>   
     </div>
     </form>
-
-    <div style="padding-left:50px;margin: 20px 0;">
-        <h1 style="margin: 20px 0;">Your ToDos</h1>
-        <table >
-            <tr>
-              <th>Sr</th>
-              <th>Title</th>
-              <th>Desc</th>
-              <th>DateTime</th>
-              <th>Actions</th>
-            </tr>
-            {% for todo in allTodo  %}
-            <tr>
-                <td>{{loop.index}}</td>  
-                <td>{{todo.title}}</td>
-                <td>{{todo.desc}}</td>
-                <td>{{todo.date}}</td>
-                <td>
-                    <button ><a style=" text-decoration: none;color:white "href="/delete/{{todo.sno}}" type="button">Delete</button>
-                    <button ><a style=" text-decoration: none;color:white "href="/update/{{todo.sno}}" type="button">Update</button>    
-                </td>
-              </tr>
-            {% endfor %}
-            
-            
-          </table>
-    </div>
-</body>
-</html>
